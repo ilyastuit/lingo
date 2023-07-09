@@ -1,6 +1,9 @@
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '3.1.1'
 }
+
+apply plugin: 'io.spring.dependency-management'
 
 group = 'com.karakalpak.lingo'
 version = '0.0.1'
@@ -11,9 +14,17 @@ repositories {
 
 ext {
     jupiterBomVersion = '5.9.1';
+    lombokVersion = '1.18.28'
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation platform("org.junit:junit-bom:${jupiterBomVersion}")
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
