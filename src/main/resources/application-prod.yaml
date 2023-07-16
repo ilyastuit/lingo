@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: user
+    password: password
+    url: jdbc:postgresql://127.0.0.1:5432/lingo
+
+logging:
+  pattern:
+    file: '%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n'
+    console: ''
+  level:
+    com:
+      lankydan:
+        service: error
+    root: info
+  file:
+    name: ./logs/lingo.log
+    path: logs
